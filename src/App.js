@@ -1,31 +1,30 @@
 import { useEffect, useState } from "react";
+function Hello() {
+  const hi = () => {
+    console.log("create");
+    return bye;
+  };
+
+  const bye = (event) => {
+    console.log("destroy");
+  };
+
+  useEffect(hi, []);
+
+  return <h1>Hello</h1>;
+}
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [show, setShow] = useState(true);
 
   const onClick = () => {
-    setCount((prev) => prev + 1);
+    setShow((prev) => !prev);
   };
-
-  const onChange = (event) => {
-    setKeyword(event.target.value);
-  };
-
-  useEffect(() => {
-    console.log("count render");
-  }, [count]);
-
-  useEffect(() => {
-    console.log("keyword render");
-  }, [keyword]);
 
   return (
     <div>
-      <h1>count: {count}</h1>
-      <h1>Keyword: {keyword}</h1>
       <button onClick={onClick}>click</button>
-      <input type="text" onChange={onChange} />
+      {show && <Hello />}
     </div>
   );
 }

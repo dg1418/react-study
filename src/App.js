@@ -1,7 +1,7 @@
-import { ToDos } from "./components/ToDos";
+import MovieApp from "./components/MovieApp.jsx";
 
 function App() {
-  return <ToDos />;
+  return <MovieApp />;
 }
 
 export default App;
